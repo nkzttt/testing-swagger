@@ -1,7 +1,10 @@
 'use strict';
 
 var SwaggerExpress = require('swagger-express-mw');
-var app = require('express')();
+var express = require('express');
+var app = express();
+app.use(express.static('public'));
+
 module.exports = app; // for testing
 
 var config = {

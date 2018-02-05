@@ -23,14 +23,21 @@ swagger project create your-project
 $ npm start
 ```
 
-Then, it is printed message on terminal.  
-Please attempt the message on terminal and check result:
+There is `mock-mode` which build simple API Server that create by `swagger.yaml`.  
+If you want to the `mock-mode`, run following code on terminal:  
 
 ```
-$ curl http://127.0.0.1:10010/hello?name=Scott
+# on ./test
 
-# result
-"Hello, Scott!"
+$ npx swagger project start -m
+```
+
+Then, it is printed message on terminal such as following.  
+Please attempt the message on terminal and check result.
+
+```
+try this:
+curl http://127.0.0.1:10010/hello?name=Scott
 ```
 
 ### View doc

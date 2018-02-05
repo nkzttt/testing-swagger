@@ -13,11 +13,16 @@
   },
   "devDependencies": {
     "nodemon": "^1.14.12",
+    "npm-run-all": "^4.1.2",
+    "opener": "^1.4.3",
     "should": "^7.1.0",
-    "supertest": "^1.0.0"
+    "supertest": "^1.0.0",
+    "wait-on": "^2.1.0"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "run-p start:*",
+    "start:server": "nodemon app.js",
+    "start:client": "wait-on http://localhost:10010/docs/ && opener http://localhost:10010/docs/",
     "test": "swagger project test"
   }
 }
