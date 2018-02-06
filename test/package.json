@@ -9,20 +9,33 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.12.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "swagger-express-mw": "^0.1.0"
   },
   "devDependencies": {
+    "babel-preset-react-app": "^3.1.1",
+    "browser-sync": "^2.23.6",
     "nodemon": "^1.14.12",
     "npm-run-all": "^4.1.2",
     "opener": "^1.4.3",
+    "parcel-bundler": "^1.5.1",
     "should": "^7.1.0",
     "supertest": "^1.0.0",
-    "wait-on": "^2.1.0"
+    "wait-on": "^2.1.0",
+    "watch": "^1.0.2"
   },
   "scripts": {
-    "start": "run-p start:*",
+    "start": "npm run build && run-p start:*",
     "start:server": "nodemon app.js",
     "start:client": "wait-on http://localhost:10010/docs/ && opener http://localhost:10010/docs/",
+    "dev": "npm run build && run-p dev:* watch",
+    "dev:server": "nodemon app.js",
+    "dev:client": "wait-on http://localhost:10010/static/ && npm run liveserver",
+    "build": "run-p build:*",
+    "build:index": "parcel build src/index.html -d public/static --no-minify",
+    "watch": "watch 'npm run build' src",
+    "liveserver": "browser-sync start -p http://localhost:10010/ -f public/static --startPath static/",
     "test": "swagger project test"
   }
 }
