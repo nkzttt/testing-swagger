@@ -78,3 +78,13 @@ To Implement API is just two steps.
 
 First, edit `api/swagger/swagger.yaml` on Swagger editor or your favorite editor.  
 Second, add a controller into `api/swagger/controllers` and define the response data.  
+
+## Creating test mock
+
+If you want to create test mock with `react`, run following code on terminal on the `test` directory:
+
+``` bash
+# on ./test
+
+$ npm run dev
+```
